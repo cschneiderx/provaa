@@ -2,19 +2,33 @@
 {
     private static void Main(string[] args)
     {
-        string palavra = Console.ReadLine();
-        char[] caracteres = palavra.ToCharArray();
-        Array.Reverse(caracteres);
-        string palavrainvertida = new string(caracteres);
+        int[] numeros = { 1, 24, 43, 74, 15, 6, 17, 83, 79, 52, 15 };
+        bool mudou;
 
-
-        if (palavrainvertida == palavra)
+        foreach (int numero in numeros)
         {
-            Console.WriteLine("A palavra é um palindromo");
+            Console.WriteLine(numero);
         }
-        else
+        do
         {
-            Console.WriteLine("A palavra não é  um palindromo");
+            mudou = false;
+            for (int i = 0; i < numeros.Length - 1; i++)
+            {
+                if (numeros[i] > numeros[i + 1])
+                {
+                    int maior = numeros[i];
+                    numeros[i] = numeros[i + 1];
+                    numeros[i + 1] = maior;
+                    mudou = true;
+
+                }
+
+            }
+        } while (mudou);
+        Console.WriteLine("\nem ordem\n");
+        foreach (int numero in numeros)
+        {
+            Console.WriteLine(numero);
         }
     }
 }
